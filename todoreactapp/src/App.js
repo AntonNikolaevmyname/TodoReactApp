@@ -19,6 +19,10 @@ class InnerList extends React.PureComponent {
 class App extends React.Component {
   state = initialData;
 
+  onDragStart = result => {
+    
+  }
+
   onDragEnd = result => {
     const { destination, source, draggableId, type } = result;
 
@@ -33,7 +37,7 @@ class App extends React.Component {
       return;
     }
 
-    if (type === 'column') {
+    if (type === 'Column') {
       const newColumnOrder = Array.from(this.state.columnOrder);
       newColumnOrder.splice(source.index, 1);
       newColumnOrder.splice(destination.index, 0, draggableId);
@@ -99,7 +103,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
+      <DragDropContext onDragEnd={this.onDragEnd} onDragStart={this.onDragStart}>
         <Droppable
           droppableId="all-columns"
           direction="horizontal"
