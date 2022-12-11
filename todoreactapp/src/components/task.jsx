@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
+import TaskEditor from './taskEditor'
 
 const Container = styled.div`
   border: 1px solid lightgrey;
@@ -24,7 +25,7 @@ export default class Task extends React.Component {
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
           >
-            {this.props.task.content}
+            <TaskEditor index={this.props.index} task={this.props.task}></TaskEditor>
           </Container>
         )}
       </Draggable>

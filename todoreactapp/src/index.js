@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  // TODO: Стрикт мод ломает работу приложения
+  // TODO: Стрикт мод ломает работу приложения.
+  // Не обновляется компонент App после перезагрузки страницы
   //<React.StrictMode>
     <App />
   //</React.StrictMode>

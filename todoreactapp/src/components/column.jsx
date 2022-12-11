@@ -24,7 +24,7 @@ const TaskList = styled.div`
   flex-grow: 1;
   min-height: 100px;
 `;
-//<Task key={task.id} task={task} index={this.props.draggableId} />
+
 class InnerList extends React.Component {
   shouldComponentUpdate(nextProps) {
     if (nextProps.tasks === this.props.tasks) {
