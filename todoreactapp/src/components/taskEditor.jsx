@@ -1,23 +1,34 @@
 import React from 'react';
 //import styled from 'styled-components';
+import { TodoControllerUpdate, TodoControllerComplete, TodoControllerDelete } from './../controllers/todoController';
 
 export default class TaskEditor extends React.Component {
    
     render() {
-        console.log(this.props)
-        const {index, task} = this.props
+        const { index, task } = this.props
+        //console.log(task)
+        /*
+        1. Взять измененный контент задачи и с ним вызвать сервис обновления
+        2. Перемещение колонок, не работает сохранение позиции
+        */
         return (
         <form>
             <div>#{index + 1}</div>
-            <textarea defaultValue={task.content}></textarea>
+            <textarea 
+            style={{'maxWidth': '95%'}}
+            defaultValue={task.content}></textarea>
             <input 
             type="button" 
             value="Изменить" 
-            onClick={() => console.log("CLICK Изменить")}></input>
+            onClick={() => TodoControllerUpdate(task)}></input>
             <input 
             type="button" 
+            value="Выполнить" 
+            onClick={() => TodoControllerComplete(task)}></input>
+            <input 
+            type="button"
             value="Удалить"
-            onClick={() => console.log("CLICK Удалить")}></input>
+            onClick={() => TodoControllerDelete(task.id)}></input>
         </form>
         )
     }
