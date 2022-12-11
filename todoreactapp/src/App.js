@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { initialData } from './data/initial-data';
 import Column from './components/column';
+import { TodoControllerGet } from './controllers/todoController'
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ class InnerList extends React.PureComponent {
 }
 
 class App extends React.Component {
-  state = initialData;
+  state = TodoControllerGet();
 
   onDragStart = result => {
     
